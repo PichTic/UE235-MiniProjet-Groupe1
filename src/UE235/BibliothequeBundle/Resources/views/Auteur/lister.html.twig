@@ -1,0 +1,26 @@
+{% extends 'UE235BibliothequeBundle::layout.html.twig' %}
+
+{% block title %}Liste des auteurs{% endblock %}
+
+{% block content %}
+	<h1>Liste des auteurs</h1>
+
+	<table>
+		{% for a in auteurs %}
+			<tr>
+				<td>{{ a.nom }}</td>
+				<td>{{ a.prenom }}</td>
+				<td>{{ a.dateNaissance|date('d/m/Y') }}</td>
+				<td>{{ a.sexe }}</td>
+				<td><a href="{{ path('ue235_auteur_modifier', { 'id': a.id }) }}">Modifier</a></td>
+				<td><a href="{{ path('ue235_auteur_supprimer', { 'id': a.id }) }}">Supprimer</a></td>
+			</tr>
+		{% else %}
+			<tr>
+				<td>Aucun auteur n’a été trouvé.</td>
+			</tr>
+		{% endfor %}
+	</table>
+
+	<p><a href="{{ path('ue235_auteur_ajouter') }}">Ajouter un auteur</a><p>
+{% endblock %}

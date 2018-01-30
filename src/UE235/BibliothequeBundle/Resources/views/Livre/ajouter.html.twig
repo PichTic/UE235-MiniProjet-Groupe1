@@ -1,0 +1,14 @@
+{% extends 'UE235BibliothequeBundle::layout.html.twig' %}
+
+{% block title %}Ajouter un livre{% endblock %}
+
+{% block content %}
+	<h1>Ajouter un livre</h1>
+
+	<form action="" method="post" {{ form_enctype(form) }}>
+	    {{ form_widget(form) }}
+	    <input type="submit" />
+	</form>
+	
+	<p><a href="{{ path('ue235_livre_lister') }}">Retour à la liste des livres</a></p>
+{% endblock %}

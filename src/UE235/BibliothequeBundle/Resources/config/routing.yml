@@ -1,0 +1,30 @@
+ue235_bibliotheque_homepage:
+  path:  /
+  defaults: { _controller: UE235BibliothequeBundle:Default:index }
+ue235_auteur_lister:
+  path: /auteur/
+  defaults: { _controller: UE235BibliothequeBundle:Auteur:lister }
+ue235_auteur_ajouter:
+  path: /auteur/ajouter
+  defaults: { _controller: UE235BibliothequeBundle:Auteur:ajouter }
+ue235_auteur_modifier:
+  path: /auteur/modifier/{id}
+  defaults: { _controller: UE235BibliothequeBundle:Auteur:modifier }
+ue235_auteur_supprimer:
+  path: /auteur/supprimer/{id}
+  defaults: { _controller: UE235BibliothequeBundle:Auteur:supprimer }
+ue235_livre_lister:
+  path: /livre/
+  defaults: { _controller: UE235BibliothequeBundle:Livre:lister }
+ue235_livre_ajouter:
+  path: /livre/ajouter
+  defaults: { _controller: UE235BibliothequeBundle:Livre:ajouter }
+ue235_livre_modifier:
+  path: /livre/modifier/{id}
+  defaults: { _controller: UE235BibliothequeBundle:Livre:modifier }
+ue235_livre_supprimer:
+  path: /livre/supprimer/{id}
+  defaults: { _controller: UE235BibliothequeBundle:Livre:supprimer }
+ue235_livre_voir:
+  path: /livre/voir/{id}
+  defaults: { _controller: UE235BibliothequeBundle:Livre:voir }

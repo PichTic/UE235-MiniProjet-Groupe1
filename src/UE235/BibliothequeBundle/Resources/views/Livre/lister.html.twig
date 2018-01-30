@@ -1,0 +1,24 @@
+{% extends 'UE235BibliothequeBundle::layout.html.twig' %}
+
+{% block title %}Liste des livres{% endblock %}
+
+{% block content %}
+	<h1>Liste des livres</h1>
+
+	<table>
+		{% for f in livres %}
+			<tr>
+				<td>{{ f.titre }}</td>
+				<td><a href="{{ path('ue235_livre_voir', { 'id': f.id }) }}">Voir</a></td>
+				<td><a href="{{ path('ue235_livre_modifier', { 'id': f.id }) }}">Modifier</a></td>
+				<td><a href="{{ path('ue235_livre_supprimer', { 'id': f.id }) }}">Supprimer</a></td>
+			</tr>
+		{% else %}
+			<tr>
+				<td>Aucun livre n’a été trouvé.</td>
+			</tr>
+		{% endfor %}
+	</table>
+
+	<p><a href="{{ path('ue235_livre_ajouter') }}">Ajouter un livre</a><p>
+{% endblock %}

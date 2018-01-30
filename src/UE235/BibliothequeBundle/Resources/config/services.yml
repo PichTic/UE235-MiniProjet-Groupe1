@@ -1,0 +1,7 @@
+parameters:
+#    ue235_bibliotheque.example.class: UE235\BibliothequeBundle\Example
+
+services:
+#    ue235_bibliotheque.example:
+#        class: %ue235_bibliotheque.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

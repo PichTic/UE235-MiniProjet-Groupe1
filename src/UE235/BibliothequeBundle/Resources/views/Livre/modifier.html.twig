@@ -1,0 +1,14 @@
+{% extends 'UE235BibliothequeBundle::layout.html.twig' %}
+
+{% block title %}Modifier un auteur{% endblock %}
+
+{% block content %}
+	<h1>Modifier un auteur</h1>
+
+	<form action="" method="post" {{ form_enctype(form) }}>
+	    {{ form_widget(form) }}
+	    <input type="submit" />
+	</form>
+
+	<p><a href="{{ path('ue235_auteur_lister') }}">Retour à la liste des auteurs</a></p>
+{% endblock %}

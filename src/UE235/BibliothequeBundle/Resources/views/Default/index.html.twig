@@ -1,0 +1,18 @@
+{% extends 'UE235BibliothequeBundle::layout.html.twig' %}
+
+{% block title %}Liste des catégories{% endblock %}
+
+{% block content %}
+	<h1>Liste des catégories</h1>
+	<table>
+		{% for cat in categories %}
+			<tr>
+				<td>{{ cat.nom }}</td>
+			</tr>
+		{% else %}
+			<tr>
+				<td>Aucune catégorie n’a été trouvée.</td>
+			</tr>
+		{% endfor %}
+	</table>
+{% endblock %}

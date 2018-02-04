@@ -1,5 +1,5 @@
 <?php
-	
+
 namespace UE235\BibliothequeBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -18,7 +18,7 @@ class LivreController extends Controller
 			'livres'	=> 	$livres
 		));
     }
-    
+
     public function voirAction($id)
     {
     	$em = $this->getDoctrine()->getManager();
@@ -27,12 +27,12 @@ class LivreController extends Controller
 			return $this->render('UE235BibliothequeBundle:Livre:voir.html.twig', array(
 				'livre' => $livre
 			));
-        }   
+        }
         return $this->redirect($this->generateUrl('ue235_livre_lister'));
     }
 
     public function ajouterAction()
-    {	
+    {
     	$livre = new Livre();
 		$form = $this->createForm(new LivreType, $livre);
 
@@ -53,7 +53,7 @@ class LivreController extends Controller
     }
 
     public function modifierAction($id)
-    {	
+    {
     	$em = $this->getDoctrine()->getManager();
 		if (isset($id)){
 			$livre = $em->find('UE235BibliothequeBundle:Livre', $id);
@@ -80,7 +80,7 @@ class LivreController extends Controller
     }
 
     public function supprimerAction($id)
-    {	
+    {
     	$em = $this->getDoctrine()->getManager();
 
 		if (isset($id)){
@@ -88,7 +88,7 @@ class LivreController extends Controller
 
 			if($livre){
 				$em->remove($livre);
-	    		$em->flush();  
+	    		$em->flush();
 			}
 		}
 

@@ -36,7 +36,7 @@ class Livre
 
     /**
      * @ORM\ManyToMany(targetEntity="UE235\BibliothequeBundle\Entity\Auteur", cascade={"persist"})
-     */    
+     */
     private $auteurs;
 
     public function __construct()
@@ -47,7 +47,7 @@ class Livre
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -70,7 +70,7 @@ class Livre
     /**
      * Get titre
      *
-     * @return string 
+     * @return string
      */
     public function getTitre()
     {
@@ -93,7 +93,7 @@ class Livre
     /**
      * Get description
      *
-     * @return string 
+     * @return string
      */
     public function getDescription()
     {

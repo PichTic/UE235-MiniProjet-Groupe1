@@ -42,7 +42,7 @@ class Auteur
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -65,7 +65,7 @@ class Auteur
     /**
      * Get nom
      *
-     * @return string 
+     * @return string
      */
     public function getNom()
     {
@@ -88,7 +88,7 @@ class Auteur
     /**
      * Get prenom
      *
-     * @return string 
+     * @return string
      */
     public function getPrenom()
     {
@@ -111,7 +111,7 @@ class Auteur
     /**
      * Get dateNaissance
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDateNaissance()
     {
@@ -134,7 +134,7 @@ class Auteur
     /**
      * Get sexe
      *
-     * @return string 
+     * @return string
      */
     public function getSexe()
     {

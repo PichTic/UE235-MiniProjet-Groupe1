@@ -1,6 +1,8 @@
 app:
-    resource: '@AppBundle/Controller/'
-    type: annotation
-UE235BibliothequeBundle:
+    # resource: '@AppBundle/Controller/'
+    # type: annotation
     resource: '@UE235BibliothequeBundle/Resources/config/routing.yml'
     prefix: /
+# UE235BibliothequeBundle:
+#     resource: '@UE235BibliothequeBundle/Resources/config/routing.yml'
+#     prefix: /

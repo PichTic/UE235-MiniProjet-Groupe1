@@ -8,39 +8,38 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class LivreType extends AbstractType
 {
-        /**
+    /**
      * @param FormBuilderInterface $builder
-     * @param array $options
+     * @param array                $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('titre', 'text')
             ->add('description', 'textarea')
-            ->add('categorie','entity', array(
-                'class' => 'UE235\BibliothequeBundle\Entity\Categorie',
+            ->add('categorie', 'entity', [
+                'class'    => 'UE235\BibliothequeBundle\Entity\Categorie',
                 'property' => 'nom',
                 'multiple' => false,
-                'required' => false
-            ))
-            ->add('auteurs', 'entity', array(
-                'class' => 'UE235\BibliothequeBundle\Entity\Auteur',
+                'required' => false,
+            ])
+            ->add('auteurs', 'entity', [
+                'class'    => 'UE235\BibliothequeBundle\Entity\Auteur',
                 'property' => 'nom',
                 'expanded' => true,
                 'multiple' => true,
-                'required' => false
-            ))
-        ;
+                'required' => false,
+            ]);
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver->setDefaults(array(
-            'data_class' => 'UE235\BibliothequeBundle\Entity\Livre'
-        ));
+        $resolver->setDefaults([
+            'data_class' => 'UE235\BibliothequeBundle\Entity\Livre',
+        ]);
     }
 
     /**

@@ -1,16 +1,64 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>{% block title %}UE235{% endblock %}</title>
+        <title>{% block title %}UE235 - Groupe 1{% endblock %}</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+        {% block stylesheets %}
+        <link rel="stylesheet" type="text/css" href="{{ asset('bundles/ue235bibliotheque/css/custom.css') }}">
+        {% endblock %}
+        {% block add_css %}
+        {% endblock %}
     </head>
     <body>
-        <div id="header">
-           
-        </div>
-        
+        <header>
+            <nav class="navbar navbar-default navbar-fixed-top">
+                <div class="container">
+                    <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="https://cvtic-2017.unilim.fr/mod/choicegroup/view.php?id=23989">Projet Groupe 1</a>
+                    </div>
+                    <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="{% if app.request.attributes.get('_route') == 'ue235_bibliotheque_homepage' %}active{% endif %}"><a href="/">Accueil</a></li>
+                        <li class="dropdown {% if app.request.attributes.get('_route') starts with 'ue235_auteur' %}active{% endif %}"">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Auteurs<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li class="{% if app.request.attributes.get('_route') == 'ue235_auteur_lister' %}active{% endif %}"><a href="/auteur">Consulter</a></li>
+                                <li class="{% if app.request.attributes.get('_route') == 'ue235_auteur_ajouter' %}active{% endif %}"><a href="/auteur/ajouter">Ajouter</a></li>
+
+                            </ul>
+                        </li>
+                        <li class="dropdown {% if app.request.attributes.get('_route') starts with 'ue235_livre' %}active{% endif %}"">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Livres<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li class="{% if app.request.attributes.get('_route') == 'ue235_livre_lister' %}active{% endif %}"><a href="/livre">Consulter</a></li>
+                                <li class="{% if app.request.attributes.get('_route') == 'ue235_livre_ajouter' %}active{% endif %}"><a href="/livre/ajouter">Ajouter</a></li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                    </div><!--/.nav-collapse -->
+                </div>
+            </nav>
+        </header>
+
         <div id="content">
-            {% block content %}
-            {% endblock %}
+            <div class="container">
+                <div class="row">
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            </div>
         </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        {% block add_js %}
+        {% endblock %}
     </body>
 </html>

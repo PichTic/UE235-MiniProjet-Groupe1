@@ -3,12 +3,14 @@
 {% block title %}Modifier un auteur{% endblock %}
 
 {% block content %}
-	<h1>Modifier un auteur</h1>
+		<div class="col-md-6 col-md-offset-3">
+		<h1>Modifier un auteur</h1>
 
-	{{ form_start(form) }}
-	    {{ form_widget(form) }}
-	    <input type="submit" />
-	{{ form_end(form) }}
+		{{ form_start(form) }}
+			{{ form_widget(form) }}
+			<input class="btn btn-success" type="submit" />
+		{{ form_end(form) }}
 
-	<p><a href="{{ path('ue235_auteur_lister') }}">Retour à la liste des auteurs</a></p>
+		<p><a href="{{ path('ue235_auteur_lister') }}">Retour à la liste des auteurs</a></p>
+	</div>
 {% endblock %}

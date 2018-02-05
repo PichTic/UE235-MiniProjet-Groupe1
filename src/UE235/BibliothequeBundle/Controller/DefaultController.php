@@ -12,9 +12,11 @@ class DefaultController extends Controller
     {
     	$em = $this->container->get('doctrine')->getManager();
 		$categories = $em->getRepository('UE235BibliothequeBundle:Categorie')->findAll();
+    $livres = $em->getRepository('UE235BibliothequeBundle:Livre')->findAll();
 
         return $this->render('UE235BibliothequeBundle:Default:index.html.twig', array(
-        	'categories' => $categories
+        	'categories' => $categories,
+          'livre' => $livres
         ));
     }
 }

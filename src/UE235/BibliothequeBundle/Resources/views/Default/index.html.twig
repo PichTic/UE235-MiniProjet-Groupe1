@@ -7,7 +7,15 @@
 	<table>
 		{% for cat in categories %}
 			<tr>
-				<td>{{ cat.nom }}</td>
+				<td>{{ cat.nom }}
+					<ul>
+						{% for l in livre %}
+							{% if cat.nom == l.categorie.nom%}
+						<li>{{ l.titre }}</li>
+							{% endif %}
+						{% endfor %}
+					</ul>
+				</td>
 			</tr>
 		{% else %}
 			<tr>

@@ -7,7 +7,7 @@
 
 	<p>{{ livre.description }}</p>
 
-	<p>Catégorie : {%if livre.categorie.nom is same as('Roman')%}<img src="{{ asset('Resources/public/images/categorie_roman.png') }}" />{%endif%}{{ livre.categorie.nom }}</p>
+	<p>Catégorie : {% if livre.categorie.nom == 'Roman' %}<img src="{{ asset('bundles/ue235bibliotheque/images/categorie_roman.png') }}" />{%endif%}{{ livre.categorie.nom }}</p>
 
 	<p>Acteurs</p>
 	<ul>
@@ -15,6 +15,6 @@
 		    <li>{{ a.prenom }} {{ a.nom}}</li>
 		{% endfor %}
 	</ul>
-	
+
 	<p><a href="{{ path('ue235_livre_lister') }}">Retour à la liste des livres</a></p>
 {% endblock %}

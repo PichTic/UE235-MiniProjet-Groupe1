@@ -7,7 +7,11 @@
 
 	<p>{{ livre.description }}</p>
 
-	<p>Catégorie : {% if livre.categorie.nom == 'Roman' %}<img src="{{ asset('bundles/ue235bibliotheque/images/categorie_roman.png') }}" />{%endif%}{{ livre.categorie.nom }}</p>
+	<p>Catégorie : {% if livre.categorie.nom is same as('Roman') %}<img src="{{ asset('bundles/ue235bibliotheque/images/categorie_roman.png') }}" />{%endif%}
+	{% if livre.categorie.nom is same as('Nouvelles') %}<img src="{{ asset('bundles/ue235bibliotheque/images/categorie_nouvelles.png') }}" />{%endif%}
+	{% if livre.categorie.nom is same as('Policier') %}<img src="{{ asset('bundles/ue235bibliotheque/images/categorie_policier.png') }}" />{%endif%}
+	{% if livre.categorie.nom is same as('Science fiction') %}<img src="{{ asset('bundles/ue235bibliotheque/images/categorie_science_fiction.png') }}" />{%endif%}
+	{{ livre.categorie.nom }}</p>
 
 	<p>Acteurs</p>
 	<ul>

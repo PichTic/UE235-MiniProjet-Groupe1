@@ -7,7 +7,7 @@
 
 	<p>{{ livre.description }}</p>
 
-	<p>Catégorie : {{ livre.categorie.nom }}</p>
+	<p>Catégorie : {%if livre.categorie.nom is same as('Roman')%}<img src="{{ asset('Resources/public/images/categorie_roman.png') }}" />{%endif%}{{ livre.categorie.nom }}</p>
 
 	<p>Acteurs</p>
 	<ul>

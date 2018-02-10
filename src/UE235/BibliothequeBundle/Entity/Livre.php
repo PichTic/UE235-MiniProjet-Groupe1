@@ -10,28 +10,28 @@ use Doctrine\ORM\Mapping as ORM;
 class Livre
 {
     /**
-    * @var integer $id
-    *
-    * @ORM\Column(name="id", type="integer")
-    * @ORM\Id
-    * @ORM\GeneratedValue(strategy="AUTO")
-    */
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
     private $id;
 
     /**
-    * @ORM\Column(name="titre", type="string", length=255)
-    */
+     * @ORM\Column(name="titre", type="string", length=255)
+     */
     private $titre;
 
     /**
-    * @ORM\Column(name="description", type="text")
-    */
+     * @ORM\Column(name="description", type="text")
+     */
     private $description;
 
     /**
-    * @ORM\ManyToOne(targetEntity="UE235\BibliothequeBundle\Entity\Categorie")
-    * @ORM\JoinColumn(nullable=false)
-    */
+     * @ORM\ManyToOne(targetEntity="UE235\BibliothequeBundle\Entity\Categorie", inversedBy="livres")
+     * @ORM\JoinColumn(name="categorie_id", referencedColumnName="id", nullable=false)
+     */
     private $categorie;
 
     /**
@@ -45,9 +45,9 @@ class Livre
     }
 
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -55,9 +55,10 @@ class Livre
     }
 
     /**
-     * Set titre
+     * Set titre.
      *
      * @param string $titre
+     *
      * @return Livre
      */
     public function setTitre($titre)
@@ -68,7 +69,7 @@ class Livre
     }
 
     /**
-     * Get titre
+     * Get titre.
      *
      * @return string
      */
@@ -78,9 +79,10 @@ class Livre
     }
 
     /**
-     * Set description
+     * Set description.
      *
      * @param string $description
+     *
      * @return Livre
      */
     public function setDescription($description)
@@ -91,7 +93,7 @@ class Livre
     }
 
     /**
-     * Get description
+     * Get description.
      *
      * @return string
      */
@@ -101,7 +103,7 @@ class Livre
     }
 
     /**
-     * Set categorie
+     * Set categorie.
      *
      * @param UE235\BibliothequeBundle\Entity\Categorie $categorie
      */
@@ -111,7 +113,7 @@ class Livre
     }
 
     /**
-     * Get categorie
+     * Get categorie.
      *
      * @return UE235\BibliothequeBundle\Entity\Categorie $categorie
      */
@@ -121,7 +123,7 @@ class Livre
     }
 
     /**
-     * Add auteurs
+     * Add auteurs.
      *
      * @param UE235\BibliothequeBundle\Entity\Auteur $auteurs
      */
@@ -131,7 +133,7 @@ class Livre
     }
 
     /**
-     * Get auteurs
+     * Get auteurs.
      *
      * @return Doctrine\Common\Collections\Collection $auteurs
      */
@@ -141,9 +143,10 @@ class Livre
     }
 
     /**
-     * Add auteurs
+     * Add auteurs.
      *
      * @param \UE235\BibliothequeBundle\Entity\Auteur $auteurs
+     *
      * @return Livre
      */
     public function addAuteur(\UE235\BibliothequeBundle\Entity\Auteur $auteurs)
@@ -154,7 +157,7 @@ class Livre
     }
 
     /**
-     * Remove auteurs
+     * Remove auteurs.
      *
      * @param \UE235\BibliothequeBundle\Entity\Auteur $auteurs
      */

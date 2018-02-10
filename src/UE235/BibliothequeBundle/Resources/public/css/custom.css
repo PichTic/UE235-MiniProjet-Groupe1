@@ -6,8 +6,8 @@ body {
 }
 .accordion {
   text-decoration: none;
-}.
-.accordion:hover{
+}
+.accordion:hover {
   text-decoration: none;
   color: rgb(44, 110, 110);
 }
@@ -17,6 +17,12 @@ body {
 
 .accordion > div:hover{
   background-color: rgba(17, 17, 236, 0.219);
+  transition: 1s;
+  transition-timing-function: ease;
+}
+.accordion > div {
+  transition: 1s;
+  transition-timing-function: ease;
 }
 
 /* classes utilitaires */

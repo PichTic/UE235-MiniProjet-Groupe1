@@ -34,7 +34,7 @@
 
                             </ul>
                         </li>
-                        <li class="dropdown {% if app.request.attributes.get('_route') starts with 'ue235_livre' %}active{% endif %}"">
+                        <li class="dropdown {% if app.request.attributes.get('_route') starts with 'ue235_livre' %}active{% endif %}">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Livres<span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li class="{% if app.request.attributes.get('_route') == 'ue235_livre_lister' %}active{% endif %}"><a href="/livre">Consulter</a></li>
@@ -43,6 +43,12 @@
                             </ul>
                         </li>
                     </ul>
+                    {% if app.request.attributes.get('_route') starts with 'ue235_livre' %}
+                        <a class="btn btn-warning navbar-btn navbar-right" href="{{ path('ue235_livre_ajouter') }}">Ajouter un livre</a>
+                    {% endif %}
+                    {% if app.request.attributes.get('_route') starts with 'ue235_auteur' %}
+                        <a class="btn btn-warning navbar-btn navbar-right" href="{{ path('ue235_auteur_ajouter') }}">Ajouter un auteur</a>
+                    {% endif %}
                     </div><!--/.nav-collapse -->
                 </div>
             </nav>

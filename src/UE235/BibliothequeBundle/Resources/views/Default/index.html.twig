@@ -1,26 +1,29 @@
-{% extends 'UE235BibliothequeBundle::layout.html.twig' %}
-
-{% block title %}Liste des catégories{% endblock %}
-
-{% block content %}
-	<h1>Liste des catégories</h1>
-	<table>
-		{% for cat in categories %}
-			<tr>
-				<td>{{ cat.nom }}
+{% extends 'UE235BibliothequeBundle::layout.html.twig' %} {% block title %}Derniers Ajout{% endblock %} {% block content %}
+<h2 class="text-center">Liste des Catégories</h2>
+	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+	{% for cat in categories %}
+		<div class="panel panel-default">
+			<div class="panel-heading" role="tab" id="heading-{{cat.nom}}">
+				<h4 class="panel-title">
+					<a role="button" data-toggle="collapse" data-parent="#accordion" href="#col-{{cat.nom}}" aria-expanded="true" aria-controls="col-{{cat.nom}}">
+						{{ cat.nom }}
+					</a>
+				</h4>
+			</div>
+			<div id="col-{{cat.nom}}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading-{{cat.nom}}">
+				<div class="panel-body">
 					<ul>
-						{% for l in livre %}
-							{% if cat.nom == l.categorie.nom%}
-						<li>{{ l.titre }}</li>
+						{% for livre in livres %}
+							{% if cat.nom == livre.categorie.nom%}
+								<li>{{ livre.titre }}</li>
 							{% endif %}
+							{% else %}
+							<p>Aucun livre trouvé dans cette catégorie</p>
 						{% endfor %}
 					</ul>
-				</td>
-			</tr>
-		{% else %}
-			<tr>
-				<td>Aucune catégorie n’a été trouvée.</td>
-			</tr>
+				</div>
+			</div>
+		</div>
 		{% endfor %}
-	</table>
+	</div>
 {% endblock %}

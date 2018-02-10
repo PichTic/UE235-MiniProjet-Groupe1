@@ -1,5 +1,12 @@
 /* Ici on ajoute la CSS custom */
 
+
 body {
   padding-top: 60px;
+}
+
+/* classes utilitaires */
+
+.m-2 {
+  margin: 20px;
 }

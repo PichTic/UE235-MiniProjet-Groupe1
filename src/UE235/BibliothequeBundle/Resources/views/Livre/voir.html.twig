@@ -18,14 +18,14 @@
 				{% if livre.categorie.nom is same as('Science fiction') %}
 				<img src="{{ asset('bundles/ue235bibliotheque/images/categorie_science_fiction.png') }}" />{%endif%}
 				<div class="caption">
-					<h3>{{ livre.titre }}</h3>
-					<span>{{ livre.categorie.nom }}</span>
-					<ul>
-						{% for a in livre.auteurs %}
-						<li>{{ a.prenom }} {{ a.nom}}</li>
-						{% endfor %}
-					</ul>
-					<p>{{ livre.description }}</p>
+					<h3 class="text-center">{{ livre.titre }}</h3>
+					<dl class="dl-horizontal">
+						<dt>Auteur(s)</dt>
+						<dd>{% for a in livre.auteurs %} {{a.prenom}} {{ a.nom | upper }} {% endfor %}</dd>
+						<dt>Catégorie</dt>
+						<dd>{{ livre.categorie.nom }}</dd>
+					</dl>
+					<p class="text-justify">{{ livre.description }}</p>
 					<p><a href="{{ path('ue235_livre_lister') }}" class="btn btn-primary" role="button">Retour</a></p>
 				</div>
 			</div>

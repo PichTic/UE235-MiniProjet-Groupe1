@@ -3,14 +3,14 @@
 {% block title %}Ajouter un livre{% endblock %}
 
 {% block content %}
-	<div class="col-md-6 col-md-offset-3">
-		<h1>Ajouter un livre</h1>
+    <div class="col-md-6 col-md-offset-3">
+        <h1>Ajouter un livre</h1>
 
-		<form action="" method="post" {{ form_enctype(form) }}>
-			{{ form_widget(form) }}
-			<input class="btn btn-success"type="submit" />
-		</form>
+        <form action="" method="post" {{ form_enctype(form) }}>
+            {{ form_widget(form) }}
+            <input class="btn btn-success"type="submit" />
+        </form>
 
-		<p><a href="{{ path('ue235_livre_lister') }}">Retour à la liste des livres</a></p>
-	</div>
+        <p><a href="{{ path('ue235_livre_lister') }}">Retour à la liste des livres</a></p>
+    </div>
 {% endblock %}

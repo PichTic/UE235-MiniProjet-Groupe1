@@ -3,6 +3,7 @@
 namespace UE235\BibliothequeBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
@@ -30,9 +31,15 @@ class LivreType extends AbstractType
                 'multiple' => true,
                 'required' => false,
             ])
-            ->add('url', 'file')
-            //->add('url', 'url')
-            ->add('alt', 'text');
+            ->add('couverture', FileType::class, [
+                'label'      => 'Couverture (JPG)',
+                'data_class' => null,
+                'required'   => true,
+            ])
+            ->add('alt', 'text', [
+                'label'    => 'Texte alternatif',
+                'required' => true,
+            ]);
     }
 
     /**

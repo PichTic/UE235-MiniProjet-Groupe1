@@ -42,7 +42,7 @@ class Livre
     /**
      * @ORM\Column(name="couverture_url", type="string", length=255)
      */
-    private $url;
+    private $couverture;
 
     /**
      * @ORM\Column(name="couverture_alt", type="string", length=255)
@@ -177,32 +177,34 @@ class Livre
     }
 
     /**
-     * Set url
+     * Set couverture.
      *
-     * @param string $url
+     * @param string $couverture
+     *
      * @return Couverture
      */
-    public function setUrl($url)
+    public function setCouverture($couverture)
     {
-        $this->url = $url;
+        $this->couverture = $couverture;
 
         return $this;
     }
 
     /**
-     * Get url
+     * Get couverture.
      *
      * @return string
      */
-    public function getUrl()
+    public function getCouverture()
     {
-        return $this->url;
+        return $this->couverture;
     }
 
     /**
-     * Set alt
+     * Set alt.
      *
      * @param string $alt
+     *
      * @return Couverture
      */
     public function setAlt($alt)
@@ -213,7 +215,7 @@ class Livre
     }
 
     /**
-     * Get alt
+     * Get alt.
      *
      * @return string
      */

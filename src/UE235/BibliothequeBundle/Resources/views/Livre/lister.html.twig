@@ -27,14 +27,18 @@
             <!-- Tab panes -->
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane fade in active" id="Infos-{{f.id}}">
+                    <div class="col-sm-4 pull-right m-2" style="">
+                      <img src="{{ asset('uploads/couvertures/') ~ f.couverture }}" alt="{{ f.alt }}" width="100%">
+                    </div>
+                    <div class="col-sm-5 m-2">
                     <h3>{{ f.titre }}</h3>
-                    <img src="{{ f.url }}" alt="{{ f.alt }}" width="100%">
-                    <dl class="dl-horizontal">
-                      <dt>Auteur(s)</dt>
-                      <dd>{% for a in f.auteurs %} {{a.prenom}} {{ a.nom | upper }} {% endfor %}</dd>
-                      <dt>Catégorie</dt>
+                    <dl>
+                      <dt>Auteur(s) :</dt>
+                      <dd class="m-1">{% for a in f.auteurs %} {{a.prenom}} {{ a.nom | upper }} {% endfor %}</dd>
+                      <dt>Catégorie :</dt>
                       <dd>{{ f.categorie.nom }}</dd>
                     </dl>
+                    </div>
                 </div>
                 <div role="tabpanel" class="tab-pane" id="Desc-{{f.id}}">
                     <p class="m-2 text-justify">{{ f.description }}</p>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  localhost:3306
--- Généré le :  Dim 11 Février 2018 à 13:12
+-- Généré le :  Dim 11 Février 2018 à 14:40
 -- Version du serveur :  5.7.21-0ubuntu0.17.10.1
 -- Version de PHP :  7.1.11-0ubuntu0.17.10.1
 
@@ -66,26 +66,6 @@ INSERT INTO `categorie` (`id`, `nom`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `couverture`
---
-
-CREATE TABLE `couverture` (
-  `id` int(11) NOT NULL,
-  `url` varchar(255) NOT NULL,
-  `alt` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Contenu de la table `couverture`
---
-
-INSERT INTO `couverture` (`id`, `url`, `alt`) VALUES
-(1, 'https://www.bedetheque.com/media/Couvertures/Couv_161710.jpg', 'Couverture de l\'écume des jours'),
-(2, 'https://www.bedetheque.com/media/Planches/GuerreTranchees.jpg', 'Couverture pour test');
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `livre`
 --
 
@@ -94,16 +74,17 @@ CREATE TABLE `livre` (
   `categorie_id` int(11) NOT NULL,
   `titre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `description` longtext COLLATE utf8_unicode_ci NOT NULL,
-  `couverture_id` int(11) DEFAULT NULL
+  `couverture_url` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `couverture_alt` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Contenu de la table `livre`
 --
 
-INSERT INTO `livre` (`id`, `categorie_id`, `titre`, `description`, `couverture_id`) VALUES
-(1, 1, 'L\'Ecume des jours', 'Le roman est centré sur le personnage de Colin, qui « possède une fortune suffisante pour vivre convenablement sans travailler pour les autres » ; il a un ami nommé Chick, qui ne dispose pas de cette chance, puisque, étant ingénieur, il est très pauvre (contrairement aux ouvriers). Le troisième personnage masculin est le cuisinier de Colin, Nicolas qui collectionne les aventures tout en restant aveugle face à l\'amour d\'Isis, une amie d\'Alise et Chloé.', 1),
-(2, 4, 'Test001', 'Ceci est un test de catégorisation', 2);
+INSERT INTO `livre` (`id`, `categorie_id`, `titre`, `description`, `couverture_url`, `couverture_alt`) VALUES
+(1, 1, 'L\'Ecume des jours', 'Le roman est centré sur le personnage de Colin, qui « possède une fortune suffisante pour vivre convenablement sans travailler pour les autres » ; il a un ami nommé Chick, qui ne dispose pas de cette chance, puisque, étant ingénieur, il est très pauvre (contrairement aux ouvriers). Le troisième personnage masculin est le cuisinier de Colin, Nicolas qui collectionne les aventures tout en restant aveugle face à l\'amour d\'Isis, une amie d\'Alise et Chloé.', 'https://www.bedetheque.com/media/Couvertures/Couv_161710.jpg', 'couverture de l\'écume des jours'),
+(2, 4, 'Test001', 'Ceci est un test de catégorisation', 'https://www.bedetheque.com/media/Couvertures/Couv_39428.jpg', 'Couverture pour test');
 
 -- --------------------------------------------------------
 
@@ -142,17 +123,10 @@ ALTER TABLE `categorie`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `couverture`
---
-ALTER TABLE `couverture`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Index pour la table `livre`
 --
 ALTER TABLE `livre`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `UNIQ_AC634F993F0A9AF5` (`couverture_id`),
   ADD KEY `IDX_AC634F99BCF5E72D` (`categorie_id`);
 
 --
@@ -178,11 +152,6 @@ ALTER TABLE `auteur`
 ALTER TABLE `categorie`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
--- AUTO_INCREMENT pour la table `couverture`
---
-ALTER TABLE `couverture`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
 -- AUTO_INCREMENT pour la table `livre`
 --
 ALTER TABLE `livre`
@@ -195,8 +164,7 @@ ALTER TABLE `livre`
 -- Contraintes pour la table `livre`
 --
 ALTER TABLE `livre`
-  ADD CONSTRAINT `FK_6DA2609DBCF5E72D` FOREIGN KEY (`categorie_id`) REFERENCES `categorie` (`id`),
-  ADD CONSTRAINT `FK_AC634F993F0A9AF5` FOREIGN KEY (`couverture_id`) REFERENCES `couverture` (`id`);
+  ADD CONSTRAINT `FK_6DA2609DBCF5E72D` FOREIGN KEY (`categorie_id`) REFERENCES `categorie` (`id`);
 
 --
 -- Contraintes pour la table `livre_auteur`

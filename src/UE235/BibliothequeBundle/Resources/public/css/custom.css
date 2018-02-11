@@ -27,6 +27,11 @@ body {
 
 /* classes utilitaires */
 
+
+.card {
+  width: 32%;
+}
+
 .m-2 {
   margin: 20px;
 }

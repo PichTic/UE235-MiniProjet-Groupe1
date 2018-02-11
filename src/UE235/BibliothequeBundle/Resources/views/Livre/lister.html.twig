@@ -6,9 +6,9 @@
 {% endblock %}
 
 {% block content %}
-<div class="row">
+<div class="cards">
 {% for f in livres %}
-<div class="col-sm-6">
+<div class="card">
     <div class="panel panel-default">
         <div class="panel-body">
             <ul class="nav nav-tabs" role="tablist">
@@ -27,11 +27,9 @@
             <!-- Tab panes -->
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane fade in active" id="Infos-{{f.id}}">
-                    <div class="col-sm-4 pull-right m-2" style="">
-                      <img src="{{ asset('uploads/couvertures/') ~ f.couverture }}" alt="{{ f.alt }}" width="100%">
-                    </div>
-                    <div class="col-sm-5 m-2">
+                    <div class="m-2">
                     <h3>{{ f.titre }}</h3>
+                    <img src="{{ asset('uploads/couvertures/') ~ f.couverture }}" alt="{{ f.alt }}" width="40%" class="pull-right img-responsive img-rounded">
                     <dl>
                       <dt>Auteur(s) :</dt>
                       <dd class="m-1">{% for a in f.auteurs %} {{a.prenom}} {{ a.nom | upper }} {% endfor %}</dd>
@@ -51,11 +49,13 @@
 </div>
 {% endblock %}
 {% block add_js %}
-<script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-<script src="//cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+<script src="https://unpkg.com/minigrid@3.1.1/dist/minigrid.min.js"></script>
 <script type="text/javascript">
-$(document).ready(function() {
-    $('#livre').DataTable();
-} );
+var grid = new Minigrid({
+  container: '.cards',
+  item: '.card',
+  gutter: 6
+});
+grid.mount();
 </script>
 {% endblock %}

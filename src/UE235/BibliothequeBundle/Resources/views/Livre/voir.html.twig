@@ -3,32 +3,22 @@
 {% block title %}Fiche du livre {{ livre.titre }}{% endblock %}
 
 {% block content %}
-	<div class="row">
-		<div class="col-sm-6 col-sm-offset-3">
-			<div class="thumbnail">
-				{% if livre.categorie.nom is same as('Roman') %}
-					<img src="{{ asset('bundles/ue235bibliotheque/images/categorie_roman.png') }}" />
-				{%endif%}
-				{% if livre.categorie.nom is same as('Nouvelles') %}
-					<img src="{{ asset('bundles/ue235bibliotheque/images/categorie_nouvelles.png') }}" />
-				{%endif%}
-				{% if livre.categorie.nom is same as('Policier') %}
-					<img src="{{ asset('bundles/ue235bibliotheque/images/categorie_policier.png') }}" />
-				{%endif%}
-				{% if livre.categorie.nom is same as('Science fiction') %}
-				<img src="{{ asset('bundles/ue235bibliotheque/images/categorie_science_fiction.png') }}" />{%endif%}
-				<div class="caption">
-					<h3 class="text-center">{{ livre.titre }}</h3>
-					<dl class="dl-horizontal">
-						<dt>Auteur(s)</dt>
-						<dd>{% for a in livre.auteurs %} {{a.prenom}} {{ a.nom | upper }} {% endfor %}</dd>
-						<dt>Catégorie</dt>
-						<dd>{{ livre.categorie.nom }}</dd>
-					</dl>
-					<p class="text-justify">{{ livre.description }}</p>
-					<p><a href="{{ path('ue235_livre_lister') }}" class="btn btn-primary" role="button">Retour</a></p>
-				</div>
-			</div>
-  	</div>
-	</div>
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+            <div class="thumbnail">
+                <img src="{{ asset('uploads/couvertures/') ~ livre.couverture }}" alt="{{ livre.alt }}" width="60%" class="img-responsive img-rounded m-2">
+                <div class="caption">
+                    <h3 class="text-center">{{ livre.titre }}</h3>
+                    <dl class="dl-horizontal">
+                        <dt>Auteur(s)</dt>
+                        <dd>{% for a in livre.auteurs %} {{a.prenom}} {{ a.nom | upper }} {% endfor %}</dd>
+                        <dt>Catégorie</dt>
+                        <dd>{{ livre.categorie.nom }}</dd>
+                    </dl>
+                    <p class="text-justify">{{ livre.description }}</p>
+                    <p><a href="{{ path('ue235_livre_lister') }}" class="btn btn-primary" role="button">Retour</a></p>
+                </div>
+            </div>
+      </div>
+    </div>
 {% endblock %}

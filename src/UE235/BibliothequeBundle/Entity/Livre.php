@@ -40,9 +40,14 @@ class Livre
     private $auteurs;
 
     /**
-     * @ORM\OneToOne(targetEntity="UE235\BibliothequeBundle\Entity\Couverture", cascade={"persist"})
+     * @ORM\Column(name="couverture_url", type="string", length=255)
      */
-    private $couverture;
+    private $url;
+
+    /**
+     * @ORM\Column(name="couverture_alt", type="string", length=255)
+     */
+    private $alt;
 
     public function __construct()
     {
@@ -172,25 +177,48 @@ class Livre
     }
 
     /**
-   * Set couverture
-   *
-   * @param string $couverture
-   * @return Livre
-   */
-    public function setCouverture($couverture)
+     * Set url
+     *
+     * @param string $url
+     * @return Couverture
+     */
+    public function setUrl($url)
     {
-        $this->couverture = $couverture;
+        $this->url = $url;
 
         return $this;
     }
 
     /**
-     * Get couverture
+     * Get url
      *
      * @return string
      */
-    public function getCouverture()
+    public function getUrl()
     {
-        return $this->couverture;
+        return $this->url;
+    }
+
+    /**
+     * Set alt
+     *
+     * @param string $alt
+     * @return Couverture
+     */
+    public function setAlt($alt)
+    {
+        $this->alt = $alt;
+
+        return $this;
+    }
+
+    /**
+     * Get alt
+     *
+     * @return string
+     */
+    public function getAlt()
+    {
+        return $this->alt;
     }
 }

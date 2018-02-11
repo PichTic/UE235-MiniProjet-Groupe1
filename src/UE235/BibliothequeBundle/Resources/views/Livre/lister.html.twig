@@ -28,7 +28,7 @@
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane fade in active" id="Infos-{{f.id}}">
                     <h3>{{ f.titre }}</h3>
-                    <img src="{{ f.couverture.url }}" alt="{{ f.couverture.alt }}">
+                    <img src="{{ f.url }}" alt="{{ f.alt }}" width="100%">
                     <dl class="dl-horizontal">
                       <dt>Auteur(s)</dt>
                       <dd>{% for a in f.auteurs %} {{a.prenom}} {{ a.nom | upper }} {% endfor %}</dd>

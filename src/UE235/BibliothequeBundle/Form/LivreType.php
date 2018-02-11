@@ -29,7 +29,9 @@ class LivreType extends AbstractType
                 'expanded' => true,
                 'multiple' => true,
                 'required' => false,
-            ]);
+            ])
+            ->add('url', 'url')
+            ->add('alt', 'text');
     }
 
     /**

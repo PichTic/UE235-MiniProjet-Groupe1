@@ -30,7 +30,8 @@ class LivreType extends AbstractType
                 'multiple' => true,
                 'required' => false,
             ])
-            ->add('url', 'url')
+            ->add('url', 'file')
+            //->add('url', 'url')
             ->add('alt', 'text');
     }
 

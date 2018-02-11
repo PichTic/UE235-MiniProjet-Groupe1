@@ -1,5 +1,6 @@
 parameters:
 #    ue235_bibliotheque.example.class: UE235\BibliothequeBundle\Example
+    cover_directory: './public/images/covers/'
 
 services:
 #    ue235_bibliotheque.example:

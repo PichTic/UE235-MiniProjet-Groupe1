@@ -48,8 +48,7 @@ CREATE TABLE `livre` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `livre` (`id`, `categorie_id`, `titre`, `description`, `couverture_url`, `couverture_alt`) VALUES
-(1,	1,	'L\'Ecume des jours',	'Le roman est centré sur le personnage de Colin, qui « possède une fortune suffisante pour vivre convenablement sans travailler pour les autres » ; il a un ami nommé Chick, qui ne dispose pas de cette chance, puisque, étant ingénieur, il est très pauvre (contrairement aux ouvriers). Le troisième personnage masculin est le cuisinier de Colin, Nicolas qui collectionne les aventures tout en restant aveugle face à l\'amour d\'Isis, une amie d\'Alise et Chloé.',	'98c42a869a86844da2a38e9d634c6f79.jpeg',	'couverture de l\'écume des jours'),
-(2,	4,	'Test001',	'Ceci est un test de catégorisation',	'533b2bec7e40708e7b0dd2fac01d6b77.jpeg',	'Couverture pour test'),
+(2,	1,	'L\'écume des jours',	'L\'Écume des jours est un roman de Boris Vian, considéré aussi comme un conte. Publié le 20 mars 1947, il a été rédigé entre mars et mai 1946 au dos d’imprimés de l’AFNOR et dédié à sa première épouse Michelle. Écrit en grand secret par l\'auteur pour être présenté au prix de la Pléiade qu\'il n\'obtiendra pas en juin 1946, c\'est « sans doute la création romanesque la plus rapide de l\'après guerre. »',	'a721c8e6aa9963483c181ed3c4bda55d.jpeg',	'L\'écume des jours'),
 (3,	4,	'Ubik',	'Ubik (titre original Ubik) est un roman de Philip K. Dick, écrit en 1966, publié aux États-Unis en 1969 et en France en 1970 dans une traduction d\'Alain Dorémieux. C\'est une œuvre classique de la littérature de science-fiction. En 2005, le magazine Time le classait parmi les 100 meilleurs romans écrits en anglais depuis 1923 ; le critique Lev Grossman a commenté ce livre comme une « histoire d\'horreur existentielle profondément troublante, un cauchemar dont vous ne serez jamais sûr de vous être réveillé. »',	'25dfdcb61dc7144af6038dd467285906.jpeg',	'couverture ubik'),
 (4,	4,	'Neuromancien',	'Neuromancien (titre original : Neuromancer) est le premier roman de science-fiction de William Gibson. Publié en 1984, il est généralement considéré comme le roman fondateur du mouvement Cyberpunk ayant inspiré bon nombre d\'œuvres telles que les mangas Ghost in the Shell ou Akira et Matrix au cinéma.\r\nIl est suivi de Comte Zéro et de Mona Lisa s\'éclate.',	'da5a50ddb3f7dd2f267daaeed9cc11bd.jpeg',	'Neuromancien - William Gibson'),
 (5,	4,	'Comte Zéro',	'Comte Zéro (titre original : Count Zero) est un roman de science-fiction écrit par William Gibson et publié pour la première fois en 1986.\r\nC\'est un représentant du genre cyberpunk, situé dans le même endroit que le précédent livre Neuromancien et est le deuxième volume de la trilogie de la cité tentaculaire, laquelle inclut Neuromancien, Comte Zéro, et Mona Lisa s\'éclate.',	'a45ca34cfa188819126cbaa92f2e88f3.jpeg',	'Compte Zéro - William Gibson');
@@ -66,11 +65,9 @@ CREATE TABLE `livre_auteur` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `livre_auteur` (`livre_id`, `auteur_id`) VALUES
-(1,	1),
 (2,	1),
-(2,	2),
 (3,	3),
 (4,	4),
 (5,	4);
 
--- 2018-02-11 17:47:56
+-- 2018-02-11 18:17:47

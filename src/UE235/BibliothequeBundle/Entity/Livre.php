@@ -39,6 +39,11 @@ class Livre
      */
     private $auteurs;
 
+    /**
+     * @ORM\OneToOne(targetEntity="UE235\BibliothequeBundle\Entity\Couverture", cascade={"persist"})
+     */
+    private $couverture;
+
     public function __construct()
     {
         $this->auteurs = new \Doctrine\Common\Collections\ArrayCollection();
@@ -164,5 +169,28 @@ class Livre
     public function removeAuteur(\UE235\BibliothequeBundle\Entity\Auteur $auteurs)
     {
         $this->auteurs->removeElement($auteurs);
+    }
+
+    /**
+   * Set couverture
+   *
+   * @param string $couverture
+   * @return Livre
+   */
+    public function setCouverture($couverture)
+    {
+        $this->couverture = $couverture;
+
+        return $this;
+    }
+
+    /**
+     * Get couverture
+     *
+     * @return string
+     */
+    public function getCouverture()
+    {
+        return $this->couverture;
     }
 }
